@@ -1,4 +1,3 @@
-import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Editor from "../Editor";
@@ -12,7 +11,6 @@ export default function CreatePost() {
   const [redirect, setRedirect] = useState(false);
   
   async function createNewPost(ev) {
-    ev.preventDefault();
     const data = new FormData();
     data.set("title", title);
     data.set("summary", summary);
@@ -20,6 +18,7 @@ export default function CreatePost() {
     if (files) {
       data.set("file", files);
     }
+    ev.preventDefault();
     const response = await fetch("http://localhost:4000/post", {
       method: "POST",
       body: data,

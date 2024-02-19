@@ -19,7 +19,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/create" element={<CreatePost />} />
           <Route path="/post/:id" element={<PostPage />} />
-          <Route path="/post/:id" element={<EditPost />} />
+          <Route path="/edit/:id" element={<EditPost />} />
         </Route>
       </Routes>
     </UserContextProvider>
