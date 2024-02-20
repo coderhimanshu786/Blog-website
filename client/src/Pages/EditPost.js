@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
-import { useEffect, useState } from "react";
 
 export default function EditPost() {
   const { id } = useParams();
@@ -18,9 +18,9 @@ export default function EditPost() {
         setSummary(postInfo.summary);
       });
     });
-  });
+  }, [id]);
 
- async function updatePost(e) {
+  async function updatePost(e) {
     e.preventDefault();
     const data = new FormData();
     data.set("title", title);
@@ -33,10 +33,10 @@ export default function EditPost() {
     const response = await fetch("http://localhost:4000/post", {
       method: "PUT",
       body: data,
-      credentials: 'include',
+      credentials: "include",
     });
-    if(response.ok){
-        setRedirect(true);
+    if (response.ok) {
+      setRedirect(true);
     }
   }
 

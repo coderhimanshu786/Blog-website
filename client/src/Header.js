@@ -29,7 +29,7 @@ export default function Header() {
   return (
     <header>
       <Link to="/" className="logo">
-        <img
+        <img className="logo-img"
           src="https://img.freepik.com/premium-vector/word-concept-color-geometric-shapes-blog_205544-12899.jpg"
           alt="logo"
           width="145px"
@@ -38,7 +38,7 @@ export default function Header() {
       <nav>
         {username ? (
           <>
-            <Link to="/">Home</Link>
+            <Link className="home" to="/">Home</Link>
             <Link to="/create">Create New</Link>
             <a href="/login" onClick={logout}>
               Logout
